@@ -5,9 +5,6 @@ venv/
 *.pyc
 __pycache__/
 
-# Ignorer les fichiers de données volumineux
-data/*.csv
-
 # Ignorer les modèles sauvegardés
 *.pkl
 #Ignorer le MakeFile

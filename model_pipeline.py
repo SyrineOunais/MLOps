@@ -1,13 +1,14 @@
+import os
+import pickle
+import warnings
+
+import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
 import seaborn as sns
-import matplotlib.pyplot as plt
-from sklearn.model_selection import train_test_split
-from sklearn.metrics import accuracy_score
 from sklearn.ensemble import RandomForestClassifier
-import warnings
-import pickle
-import os
+from sklearn.metrics import accuracy_score
+from sklearn.model_selection import train_test_split
 
 warnings.filterwarnings("ignore")
 
@@ -286,3 +287,27 @@ def create_submission(predictions, test_ids, file_name="submission.csv"):
     submission.to_csv(file_name, index=False)
     print(f"Fichier de soumission créé : {file_name}")
     return submission
+
+def retrain_model(X_train, y_train, n_estimators=100, max_depth=None, random_state=42):
+    """
+    Entraîner un modèle Random Forest sur les données d'entraînement.
+
+    Args:
+        X_train (pd.DataFrame): Features d'entraînement
+        y_train (pd.Series): Labels d'entraînement
+        n_estimators (int): Nombre d'arbres
+        max_depth (int|None): Profondeur maximale des arbres
+        random_state (int): Seed pour la reproductibilité
+
+    Returns:
+        RandomForestClassifier: Modèle entraîné
+    """
+    model = RandomForestClassifier(
+        n_estimators=n_estimators,
+        max_depth=max_depth,
+        random_state=random_state
+    )
+    model.fit(X_train, y_train)
+    print("Modèle Random Forest entraîné avec succès")
+    return model
+

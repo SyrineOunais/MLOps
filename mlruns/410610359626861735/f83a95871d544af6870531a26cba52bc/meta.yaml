@@ -1,0 +1,14 @@
+artifact_uri: file:///home/syrine/syrine-ounais-4DS8-ml_project/mlruns/410610359626861735/f83a95871d544af6870531a26cba52bc/artifacts
+end_time: 1764687880599
+entry_point_name: ''
+experiment_id: '410610359626861735'
+lifecycle_stage: active
+run_id: f83a95871d544af6870531a26cba52bc
+run_name: handsome-boar-289
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1764687875733
+status: 4
+tags: []
+user_id: syrine

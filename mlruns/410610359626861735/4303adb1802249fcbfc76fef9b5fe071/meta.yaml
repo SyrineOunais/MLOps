@@ -1,0 +1,14 @@
+artifact_uri: file:///home/syrine/syrine-ounais-4DS8-ml_project/mlruns/410610359626861735/4303adb1802249fcbfc76fef9b5fe071/artifacts
+end_time: 1764689603438
+entry_point_name: ''
+experiment_id: '410610359626861735'
+lifecycle_stage: active
+run_id: 4303adb1802249fcbfc76fef9b5fe071
+run_name: indecisive-whale-923
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1764689603419
+status: 3
+tags: []
+user_id: syrine

@@ -1,0 +1,14 @@
+artifact_uri: file:///home/syrine/syrine-ounais-4DS8-ml_project/mlruns/410610359626861735/64adea8e94e7482789035983362a563b/artifacts
+end_time: 1764688016323
+entry_point_name: ''
+experiment_id: '410610359626861735'
+lifecycle_stage: active
+run_id: 64adea8e94e7482789035983362a563b
+run_name: sassy-mink-24
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1764688016300
+status: 3
+tags: []
+user_id: syrine

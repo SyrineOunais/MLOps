@@ -1,0 +1,14 @@
+artifact_uri: file:///home/syrine/syrine-ounais-4DS8-ml_project/mlruns/410610359626861735/1c3146efafcd41b9a642cb5c9d91be2b/artifacts
+end_time: 1764689700205
+entry_point_name: ''
+experiment_id: '410610359626861735'
+lifecycle_stage: active
+run_id: 1c3146efafcd41b9a642cb5c9d91be2b
+run_name: learned-snipe-741
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1764689700181
+status: 3
+tags: []
+user_id: syrine

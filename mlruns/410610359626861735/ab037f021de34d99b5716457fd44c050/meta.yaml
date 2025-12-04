@@ -1,0 +1,14 @@
+artifact_uri: file:///home/syrine/syrine-ounais-4DS8-ml_project/mlruns/410610359626861735/ab037f021de34d99b5716457fd44c050/artifacts
+end_time: 1764872723865
+entry_point_name: ''
+experiment_id: '410610359626861735'
+lifecycle_stage: active
+run_id: ab037f021de34d99b5716457fd44c050
+run_name: big-loon-150
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1764872723841
+status: 3
+tags: []
+user_id: syrine

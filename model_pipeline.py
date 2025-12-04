@@ -7,8 +7,11 @@ import numpy as np
 import pandas as pd
 import seaborn as sns
 from sklearn.ensemble import RandomForestClassifier
-from sklearn.metrics import accuracy_score
+from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score
 from sklearn.model_selection import train_test_split
+import mlflow
+import mlflow.sklearn
+
 
 warnings.filterwarnings("ignore")
 
@@ -178,7 +181,8 @@ def prepare_data(train_path, test_path):
 
 def train_model(X_train, y_train):
     """
-    Entraîner un modèle Random Forest sur les données d'entraînement.
+    Entraîne un modèle Random Forest sur les données d'entraînement
+    et log les hyperparamètres et le modèle dans MLflow.
 
     Args:
         X_train (pd.DataFrame): Features d'entraînement
@@ -187,10 +191,25 @@ def train_model(X_train, y_train):
     Returns:
         RandomForestClassifier: Modèle entraîné
     """
-    model = RandomForestClassifier(n_estimators=100, random_state=42)
+
+    # Hyperparamètres
+    n_estimators = 100
+    random_state = 42
+
+    # Log des hyperparamètres dans le run actif
+    mlflow.log_param("n_estimators", n_estimators)
+    mlflow.log_param("random_state", random_state)
+
+    # Entraînement du modèle
+    model = RandomForestClassifier(n_estimators=n_estimators, random_state=random_state)
     model.fit(X_train, y_train)
-    print("Modèle Random Forest entraîné avec succès")
+
+    # Sauvegarde du modèle dans MLflow (dans le run actif)
+    mlflow.sklearn.log_model(model, "model")
+
+    print("Modèle Random Forest entraîné et enregistré dans MLflow.")
     return model
+
 
 
 def evaluate_model(model, X_test, y_test):
@@ -206,11 +225,31 @@ def evaluate_model(model, X_test, y_test):
         dict: Contient l'accuracy, les prédictions et les labels réels
     """
     y_pred = model.predict(X_test)
+
     accuracy = accuracy_score(y_test, y_pred)
-    print(f"Accuracy du modèle: {accuracy:.4f}")
-    print(f"Prédictions correctes: {np.sum(y_test == y_pred)}")
-    print(f"Prédictions incorrectes: {np.sum(y_test != y_pred)}")
-    return {"accuracy": accuracy, "predictions": y_pred, "actual": y_test}
+    precision = precision_score(y_test, y_pred, average="binary")
+    recall = recall_score(y_test, y_pred, average="binary")
+    f1 = f1_score(y_test, y_pred, average="binary")
+
+    print(f"Accuracy: {accuracy:.4f}")
+    print(f"Precision: {precision:.4f}")
+    print(f"Recall: {recall:.4f}")
+    print(f"F1-score: {f1:.4f}")
+
+    # Log MLflow
+    mlflow.log_metric("accuracy", accuracy)
+    mlflow.log_metric("precision", precision)
+    mlflow.log_metric("recall", recall)
+    mlflow.log_metric("f1_score", f1)
+
+    return {
+        "accuracy": accuracy,
+        "precision": precision,
+        "recall": recall,
+        "f1_score": f1,
+        "predictions": y_pred,
+        "actual": y_test
+    }
 
 
 def predict(model, X_data):
@@ -224,7 +263,10 @@ def predict(model, X_data):
     Returns:
         np.ndarray: Prédictions du modèle
     """
-    return model.predict(X_data)
+    with mlflow.start_run(nested=True):
+        mlflow.log_param("prediction_input_size", len(X_data))
+        predictions = model.predict(X_data)
+    return predictions
 
 
 def save_model(model, file_path):
@@ -252,6 +294,7 @@ def load_model(file_path):
     Charger un modèle sauvegardé ainsi que les paramètres de preprocessing.
 
     Args:
+    
         file_path (str): Chemin du fichier sauvegardé
 
     Returns:

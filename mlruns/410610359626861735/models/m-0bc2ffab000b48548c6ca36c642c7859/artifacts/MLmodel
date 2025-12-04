@@ -1,0 +1,22 @@
+artifact_path: file:///home/syrine/syrine-ounais-4DS8-ml_project/mlruns/410610359626861735/models/m-0bc2ffab000b48548c6ca36c642c7859/artifacts
+flavors:
+  python_function:
+    env:
+      conda: conda.yaml
+      virtualenv: python_env.yaml
+    loader_module: mlflow.sklearn
+    model_path: model.pkl
+    predict_fn: predict
+    python_version: 3.12.3
+  sklearn:
+    code: null
+    pickled_model: model.pkl
+    serialization_format: cloudpickle
+    sklearn_version: 1.7.2
+mlflow_version: 3.6.0
+model_id: m-0bc2ffab000b48548c6ca36c642c7859
+model_size_bytes: 1843810
+model_uuid: m-0bc2ffab000b48548c6ca36c642c7859
+prompts: null
+run_id: d3d076e8548b48edac1d7c4c79094bdb
+utc_time_created: '2025-12-02 15:06:51.682107'

@@ -1,56 +1,66 @@
 import warnings
-
 warnings.filterwarnings("ignore")
 
-# Importer toutes les fonctions depuis model_pipeline.py
-from model_pipeline import (evaluate_model, load_model, predict, prepare_data,
-                            save_model, train_model)
+import mlflow
 
+# Importer toutes les fonctions depuis model_pipeline.py
+from model_pipeline import (
+    evaluate_model, load_model, predict, prepare_data,
+    save_model, train_model
+)
 
 def main():
-    # Chemins des fichiers de données
-    train_path = "data/train.csv"
-    test_path = "data/test.csv"
+    
+    mlflow.set_tracking_uri("sqlite:///mlflow.db")
+   # Définir l'expérience MLflow
+    mlflow.set_experiment("Loan_Prediction_RandomForest")
 
-    print("=== Pipeline de Prédiction de Prêts - Modèle Random Forest ===\n")
+    # Démarrer un run MLflow
+    with mlflow.start_run():
 
-    # Étape 1: Préparation des données
-    print("1. Préparation des données...")
-    data = prepare_data(train_path, test_path)
-    print(f"Shape X_train: {data['X_train'].shape}")
-    print(f"Shape X_test: {data['X_test'].shape}")
-    print(f"Shape X_final_test: {data['X_final_test'].shape}")
-    print(f"Features utilisées: {list(data['X_train'].columns)}\n")
+        # Chemins des fichiers de données
+        train_path = "data/train.csv"
+        test_path = "data/test.csv"
 
-    # Étape 2: Entraînement du modèle
-    print("2. Entraînement du modèle Random Forest...")
-    model = train_model(data["X_train"], data["y_train"])
-    print()
+        print("=== Pipeline de Prédiction de Prêts - Modèle Random Forest ===\n")
 
-    # Étape 3: Évaluation du modèle
-    print("3. Évaluation du modèle...")
-    results = evaluate_model(model, data["X_test"], data["y_test"])
-    print()
+        # Étape 1: Préparation des données
+        print("1. Préparation des données...")
+        data = prepare_data(train_path, test_path)
+        print(f"Shape X_train: {data['X_train'].shape}")
+        print(f"Shape X_test: {data['X_test'].shape}")
+        print(f"Shape X_final_test: {data['X_final_test'].shape}")
+        print(f"Features utilisées: {list(data['X_train'].columns)}\n")
 
-    # Étape 4: Prédictions sur les données de test finales
-    print("4. Prédictions sur les données de test...")
-    final_predictions = predict(model, data["X_final_test"])
-    print(f"Nombre de prédictions: {len(final_predictions)}")
-    print(f"Prêts approuvés: {sum(final_predictions == 1)}")
-    print(f"Prêts refusés: {sum(final_predictions == 0)}\n")
+        # Étape 2: Entraînement du modèle
+        print("2. Entraînement du modèle Random Forest...")
+        model = train_model(data["X_train"], data["y_train"])
+        print()
 
-    # Étape 5: Sauvegarde du modèle
-    print("5. Sauvegarde du modèle...")
-    save_model(model, "random_forest_loan_model.pkl")
-    print()
+        # Étape 3: Évaluation du modèle
+        print("3. Évaluation du modèle...")
+        results = evaluate_model(model, data["X_test"], data["y_test"])
+        print()
 
-    # Étape 6: Chargement du modèle et vérification
-    print("6. Test de chargement du modèle...")
-    loaded_model = load_model("random_forest_loan_model.pkl")
-    test_predictions = predict(loaded_model, data["X_test"].head())
-    print(f"Prédictions de test avec modèle chargé: {test_predictions}\n")
+        # Étape 4: Prédictions sur les données de test finales
+        print("4. Prédictions sur les données de test...")
+        final_predictions = predict(model, data["X_final_test"])
+        print(f"Nombre de prédictions: {len(final_predictions)}")
+        print(f"Prêts approuvés: {sum(final_predictions == 1)}")
+        print(f"Prêts refusés: {sum(final_predictions == 0)}\n")
 
-    print("=== Pipeline terminé avec succès ===")
+        # Étape 5: Sauvegarde du modèle
+        print("5. Sauvegarde du modèle...")
+        save_model(model, "random_forest_loan_model.pkl")
+        print()
+
+        # Étape 6: Chargement du modèle et vérification
+        print("6. Test de chargement du modèle...")
+        loaded_model = load_model("random_forest_loan_model.pkl")
+        test_predictions = predict(loaded_model, data["X_test"].head())
+        print(f"Prédictions de test avec modèle chargé: {test_predictions}\n")
+
+        print("=== Pipeline terminé avec succès ===")
 
 
 if __name__ == "__main__":

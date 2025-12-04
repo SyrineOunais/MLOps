@@ -1,0 +1,14 @@
+artifact_uri: file:///home/syrine/syrine-ounais-4DS8-ml_project/mlruns/410610359626861735/75e0943c054e46cfa320d6071278e11f/artifacts
+end_time: 1764689700155
+entry_point_name: ''
+experiment_id: '410610359626861735'
+lifecycle_stage: active
+run_id: 75e0943c054e46cfa320d6071278e11f
+run_name: casual-sow-430
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1764689700124
+status: 3
+tags: []
+user_id: syrine

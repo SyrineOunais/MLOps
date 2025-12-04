@@ -1,0 +1,14 @@
+artifact_uri: file:///home/syrine/syrine-ounais-4DS8-ml_project/mlruns/410610359626861735/70f279cf17be4d8cad6d6a3b2939133a/artifacts
+end_time: 1764687503706
+entry_point_name: ''
+experiment_id: '410610359626861735'
+lifecycle_stage: active
+run_id: 70f279cf17be4d8cad6d6a3b2939133a
+run_name: peaceful-horse-650
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1764687503559
+status: 4
+tags: []
+user_id: syrine

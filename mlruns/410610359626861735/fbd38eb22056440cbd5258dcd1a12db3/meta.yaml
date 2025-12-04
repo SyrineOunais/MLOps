@@ -1,0 +1,14 @@
+artifact_uri: file:///home/syrine/syrine-ounais-4DS8-ml_project/mlruns/410610359626861735/fbd38eb22056440cbd5258dcd1a12db3/artifacts
+end_time: 1764872936748
+entry_point_name: ''
+experiment_id: '410610359626861735'
+lifecycle_stage: active
+run_id: fbd38eb22056440cbd5258dcd1a12db3
+run_name: mysterious-shoat-113
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1764872936722
+status: 3
+tags: []
+user_id: syrine

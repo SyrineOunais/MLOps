@@ -1,0 +1,14 @@
+artifact_uri: file:///home/syrine/syrine-ounais-4DS8-ml_project/mlruns/410610359626861735/d3d076e8548b48edac1d7c4c79094bdb/artifacts
+end_time: 1764688016359
+entry_point_name: ''
+experiment_id: '410610359626861735'
+lifecycle_stage: active
+run_id: d3d076e8548b48edac1d7c4c79094bdb
+run_name: trusting-hen-571
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1764688011423
+status: 3
+tags: []
+user_id: syrine

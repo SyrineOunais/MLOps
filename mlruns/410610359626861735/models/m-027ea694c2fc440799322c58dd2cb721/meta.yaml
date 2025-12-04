@@ -1,0 +1,10 @@
+artifact_location: file:///home/syrine/syrine-ounais-4DS8-ml_project/mlruns/410610359626861735/models/m-027ea694c2fc440799322c58dd2cb721/artifacts
+creation_timestamp: 1764689693854
+experiment_id: '410610359626861735'
+last_updated_timestamp: 1764689700076
+model_id: m-027ea694c2fc440799322c58dd2cb721
+model_type: null
+name: model
+source_run_id: 77873f1ebf13474ebeec1503fc769f5b
+status: 2
+status_message: null

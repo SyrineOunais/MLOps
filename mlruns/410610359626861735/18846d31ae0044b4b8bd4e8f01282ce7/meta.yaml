@@ -1,0 +1,14 @@
+artifact_uri: file:///home/syrine/syrine-ounais-4DS8-ml_project/mlruns/410610359626861735/18846d31ae0044b4b8bd4e8f01282ce7/artifacts
+end_time: 1764872723868
+entry_point_name: ''
+experiment_id: '410610359626861735'
+lifecycle_stage: active
+run_id: 18846d31ae0044b4b8bd4e8f01282ce7
+run_name: chill-dolphin-444
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1764872719821
+status: 3
+tags: []
+user_id: syrine

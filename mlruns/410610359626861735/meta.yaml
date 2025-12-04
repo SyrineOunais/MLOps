@@ -1,0 +1,6 @@
+artifact_location: file:///home/syrine/syrine-ounais-4DS8-ml_project/mlruns/410610359626861735
+creation_time: 1764687503364
+experiment_id: '410610359626861735'
+last_update_time: 1764687503364
+lifecycle_stage: active
+name: Loan_Prediction_RandomForest

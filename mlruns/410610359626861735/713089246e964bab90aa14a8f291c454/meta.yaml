@@ -1,0 +1,14 @@
+artifact_uri: file:///home/syrine/syrine-ounais-4DS8-ml_project/mlruns/410610359626861735/713089246e964bab90aa14a8f291c454/artifacts
+end_time: 1764687924455
+entry_point_name: ''
+experiment_id: '410610359626861735'
+lifecycle_stage: active
+run_id: 713089246e964bab90aa14a8f291c454
+run_name: intelligent-asp-12
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1764687918988
+status: 4
+tags: []
+user_id: syrine

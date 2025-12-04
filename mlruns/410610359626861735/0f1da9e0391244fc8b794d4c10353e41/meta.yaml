@@ -1,0 +1,14 @@
+artifact_uri: file:///home/syrine/syrine-ounais-4DS8-ml_project/mlruns/410610359626861735/0f1da9e0391244fc8b794d4c10353e41/artifacts
+end_time: 1764688016357
+entry_point_name: ''
+experiment_id: '410610359626861735'
+lifecycle_stage: active
+run_id: 0f1da9e0391244fc8b794d4c10353e41
+run_name: carefree-colt-240
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1764688016338
+status: 3
+tags: []
+user_id: syrine

@@ -1,0 +1,14 @@
+artifact_uri: file:///home/syrine/syrine-ounais-4DS8-ml_project/mlruns/410610359626861735/27903f893b354caebe2ec21d741fe07a/artifacts
+end_time: 1764687687613
+entry_point_name: ''
+experiment_id: '410610359626861735'
+lifecycle_stage: active
+run_id: 27903f893b354caebe2ec21d741fe07a
+run_name: mysterious-shrew-61
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1764687681989
+status: 4
+tags: []
+user_id: syrine

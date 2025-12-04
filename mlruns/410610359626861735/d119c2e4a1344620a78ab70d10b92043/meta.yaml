@@ -1,0 +1,14 @@
+artifact_uri: file:///home/syrine/syrine-ounais-4DS8-ml_project/mlruns/410610359626861735/d119c2e4a1344620a78ab70d10b92043/artifacts
+end_time: 1764872936833
+entry_point_name: ''
+experiment_id: '410610359626861735'
+lifecycle_stage: active
+run_id: d119c2e4a1344620a78ab70d10b92043
+run_name: mysterious-horse-143
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1764872932565
+status: 3
+tags: []
+user_id: syrine

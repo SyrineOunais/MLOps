@@ -14,6 +14,8 @@ def main():
     mlflow.set_tracking_uri("sqlite:///mlflow.db")
    # Définir l'expérience MLflow
     mlflow.set_experiment("Loan_Prediction_RandomForest")
+    #mlflow.set_default_artifact_uri("file:./artifacts")
+    #mkdir artifacts
 
     # Démarrer un run MLflow
     with mlflow.start_run():

@@ -4,6 +4,7 @@ import warnings
 warnings.filterwarnings("ignore")
 
 import mlflow
+import mlflow.sklearn
 
 # Importer toutes les fonctions depuis model_pipeline.py
 from model_pipeline import (
@@ -35,8 +36,8 @@ init_db(DB_PATH)
 
 def main():
     
-    mlflow.set_tracking_uri(f"sqlite:///{DB_PATH}")
-   # Définir l'expérience MLflow
+    mlflow.set_tracking_uri("sqlite:///mlflow.db")
+   # Définir l'expérience MLflowss
     mlflow.set_experiment("Loan_Prediction_RandomForest")
     #mlflow.set_default_artifact_uri("file:./artifacts")
     #mkdir artifacts
@@ -78,6 +79,8 @@ def main():
         # Étape 5: Sauvegarde du modèle
         print("5. Sauvegarde du modèle...")
         save_model(model, "random_forest_loan_model.pkl")
+        mlflow.sklearn.log_model(model, artifact_path="random_forest_model")
+
         print()
 
         # Étape 6: Chargement du modèle et vérification

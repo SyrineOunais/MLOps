@@ -35,8 +35,9 @@ def init_db(path):
 init_db(DB_PATH)
 
 def main():
-    mlflow.set_tracking_uri("sqlite:///{DB_PATH}") #pour le push git 
-    #mlflow.set_tracking_uri("sqlite:///mlflow.db")
+    #mlflow.set_tracking_uri("sqlite:///{DB_PATH}") #pour le push git 
+    #mlflow.set_tracking_uri("sqlite:///mlflow.db") #pour le mlflow
+    mlflow.set_tracking_uri(f"sqlite:///{DB_PATH}")
    # Définir l'expérience MLflowss
     mlflow.set_experiment("Loan_Prediction_RandomForest")
     #mlflow.set_default_artifact_uri("file:./artifacts")

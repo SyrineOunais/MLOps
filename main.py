@@ -1,3 +1,5 @@
+import os
+import sqlite3
 import warnings
 warnings.filterwarnings("ignore")
 
@@ -9,9 +11,31 @@ from model_pipeline import (
     save_model, train_model
 )
 
+DB_PATH = os.getenv("DB_PATH", "mlflow.db")  # mlflow.db pour local, variable pour CI
+
+def init_db(path):
+    """Crée la DB et les tables si elles n'existent pas."""
+    conn = sqlite3.connect(path)
+    cursor = conn.cursor()
+
+    # Exemple de table pour MLflow (ajuster si besoin)
+    cursor.execute("""
+        CREATE TABLE IF NOT EXISTS experiments (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            name TEXT NOT NULL,
+            created_at TEXT
+        )
+    """)
+
+    conn.commit()
+    conn.close()
+
+# Initialisation de la DB avant tout
+init_db(DB_PATH)
+
 def main():
     
-    mlflow.set_tracking_uri("sqlite:///mlflow.db")
+    mlflow.set_tracking_uri(f"sqlite:///{DB_PATH}")
    # Définir l'expérience MLflow
     mlflow.set_experiment("Loan_Prediction_RandomForest")
     #mlflow.set_default_artifact_uri("file:./artifacts")
